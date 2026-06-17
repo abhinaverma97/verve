@@ -1,34 +1,47 @@
 import "./globals.css";
+import { Inter, Space_Grotesk } from "next/font/google";
+
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const display = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata = {
-  title: "Verve — Four Channels, One Memory",
+  title: "Verve — One memory across every channel",
   description:
-    "Verve is the autonomous AI sales platform that unifies SMS, Voice, Email, and Webchat with one persistent memory. Convert leads faster with AI SDRs that never sleep.",
+    "Verve runs SMS, voice, email and webchat from a single persistent memory. When a lead drops, it follows up on another channel and keeps the same conversation going.",
   keywords: [
     "AI sales",
     "AI SDR",
     "speed to lead",
     "conversational AI",
-    "SMS marketing",
-    "AI voice calls",
+    "omnichannel outreach",
     "lead conversion",
   ],
   openGraph: {
-    title: "Verve — Four Channels, One Memory",
+    title: "Verve — One memory across every channel",
     description:
-      "Autonomous AI SDRs across SMS, Voice, Email & Webchat with a single persistent memory.",
+      "Autonomous AI reps across SMS, voice, email and webchat, sharing a single persistent memory.",
     type: "website",
   },
 };
 
 export const viewport = {
-  themeColor: "#05060a",
+  themeColor: "#0b0b0f",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${sans.variable} ${display.variable}`}>
+      <body className="grain">{children}</body>
     </html>
   );
 }

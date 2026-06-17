@@ -1,80 +1,94 @@
 import Reveal from "./Reveal";
-import ChannelOrbit from "./ChannelOrbit";
+import MemoryCore from "./MemoryCore";
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-20 sm:pt-40">
-      {/* backdrop */}
-      <div className="bg-grid absolute inset-0 -z-10" />
-      <span
-        className="glow-orb -top-32 left-1/4 h-96 w-96"
-        style={{ background: "#7c5cff" }}
-      />
-      <span
-        className="glow-orb -top-20 right-1/4 h-80 w-80"
-        style={{ background: "#4f8bff" }}
-      />
+    <section id="top" className="relative overflow-hidden pt-28 sm:pt-32">
+      <div className="dotrow pointer-events-none absolute inset-0 -z-10 opacity-[0.35]" />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2">
-        <div>
-          <Reveal>
-            <a
-              href="#cta"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-soft)] px-3 py-1.5 text-xs text-[var(--color-muted)]"
-            >
-              <span className="h-1.5 w-1.5 animate-blink rounded-full bg-[var(--color-accent)]" />
-              Autonomous AI SDRs, live 24/7
-              <span className="text-white">→</span>
-            </a>
-          </Reveal>
+      <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
+        {/* meta row */}
+        <Reveal className="flex items-center justify-between border-b border-[var(--color-line)] pb-4 pt-6 text-[12px] text-[var(--color-faint)]">
+          <span className="font-display tracking-[0.18em]">VERVE / SALES OS</span>
+          <span className="hidden sm:block">Built for 5,000+ leads a month</span>
+          <span className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 animate-blink rounded-full bg-[var(--color-accent)]" />
+            agents live
+          </span>
+        </Reveal>
 
-          <Reveal delay={80}>
-            <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
-              Four channels.
-              <br />
-              <span className="text-gradient">One memory.</span>
-            </h1>
-          </Reveal>
+        <div className="grid items-center gap-6 pb-10 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:pt-16">
+          {/* headline column */}
+          <div>
+            <Reveal>
+              <p className="mb-5 text-sm text-[var(--color-muted)]">
+                The follow-up engine for high-volume sales teams
+              </p>
+            </Reveal>
 
-          <Reveal delay={160}>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
-              Verve unifies SMS, Voice, Email, and Webchat under a single
-              persistent memory. When a lead goes quiet on one channel, Verve
-              picks up the exact same conversation on another, minutes later.
-            </p>
-          </Reveal>
+            <Reveal delay={70}>
+              <h1 className="font-display text-[clamp(2.6rem,7vw,5.4rem)] font-semibold leading-[0.95]">
+                One memory
+                <br />
+                across every
+                <br />
+                <span className="relative inline-block">
+                  channel
+                  <svg
+                    className="absolute -bottom-2 left-0 w-full"
+                    viewBox="0 0 300 12"
+                    fill="none"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M2 9C60 3 220 2 298 7"
+                      stroke="#c6f24e"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+                .
+              </h1>
+            </Reveal>
 
-          <Reveal delay={240}>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href="#cta"
-                className="btn-primary rounded-full px-6 py-3 text-sm font-medium"
-              >
-                Book a demo
-              </a>
-              <a
-                href="#how"
-                className="btn-ghost rounded-full px-6 py-3 text-sm font-medium"
-              >
-                See how it works
-              </a>
-            </div>
-          </Reveal>
+            <Reveal delay={150}>
+              <p className="mt-7 max-w-md text-[15px] leading-relaxed text-[var(--color-muted)]">
+                Verve works SMS, voice, email and webchat from a single brain.
+                A lead ghosts your chat widget? It texts them four minutes later
+                and keeps the same thread going — no re-introductions, no lost
+                context.
+              </p>
+            </Reveal>
 
-          <Reveal delay={320}>
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-[var(--color-faint)]">
-              <span>TCPA &amp; FCC compliant</span>
-              <span className="hidden h-3 w-px bg-[var(--color-border)] sm:block" />
-              <span>Native Salesforce &amp; HubSpot sync</span>
-              <span className="hidden h-3 w-px bg-[var(--color-border)] sm:block" />
-              <span>Built for 5,000+ leads/mo</span>
+            <Reveal delay={220}>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href="#cta"
+                  className="btn-accent rounded-full px-6 py-3 text-sm"
+                >
+                  Get a walkthrough
+                </a>
+                <a
+                  href="#method"
+                  className="btn-line rounded-full px-6 py-3 text-sm"
+                >
+                  See the method
+                </a>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* 3D column (off-center, asymmetric) */}
+          <Reveal delay={120} className="relative lg:translate-x-6">
+            <div className="relative">
+              <MemoryCore />
+              <div className="pointer-events-none absolute bottom-2 left-2 font-display text-[11px] tracking-[0.2em] text-[var(--color-faint)]">
+                PERSISTENT MEMORY · LIVE
+              </div>
             </div>
           </Reveal>
         </div>
-
-        <Reveal delay={200} className="relative">
-          <ChannelOrbit />
-        </Reveal>
       </div>
     </section>
   );

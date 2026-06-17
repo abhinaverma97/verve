@@ -1,63 +1,50 @@
 import Reveal from "./Reveal";
+import SectionHead from "./SectionHead";
 
 const features = [
   {
     title: "Custom guardrails",
-    desc: "Set strict rules like “never promise financial aid.” Verve checks every generated message in real time, blocking and rewriting before it sends.",
+    desc: "Set hard rules like “never promise financial aid.” Every generated message is checked in real time, then blocked and rewritten before it sends.",
+    tag: "Real-time",
   },
   {
-    title: "Native CRM syncing",
-    desc: "Integrates directly with Salesforce and HubSpot, analyzing transcripts to extract structured data and update tags — no manual entry.",
+    title: "Native CRM sync",
+    desc: "Reads transcripts, pulls structured signals like high-intent or schedule-conflict, and updates Salesforce and HubSpot tags. No manual data entry.",
+    tag: "Salesforce · HubSpot",
   },
   {
-    title: "Built for compliance",
-    desc: "Engineered to navigate TCPA and FCC regulations so automated SMS and voice outreach never crosses anti-spam or robocall lines.",
+    title: "Compliant by design",
+    desc: "Built around TCPA and FCC rules so automated SMS and voice outreach stays on the right side of anti-spam and robocall law.",
+    tag: "TCPA · FCC",
   },
 ];
 
 export default function Security() {
   return (
     <section
-      id="security"
-      className="relative overflow-hidden border-y border-[var(--color-border)] bg-[var(--color-bg-soft)] py-24"
+      id="guardrails"
+      className="border-y border-[var(--color-line)] bg-[var(--color-bg-soft)] py-24"
     >
-      <span
-        className="glow-orb right-0 top-10 h-80 w-80"
-        style={{ background: "#4f8bff", opacity: 0.2 }}
-      />
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <Reveal>
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-brand-2)]">
-            Enterprise-grade
-          </p>
-          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight sm:text-4xl">
-            Reliability and compliance that bypasses AI hallucination
-          </h2>
-          <p className="mt-4 max-w-2xl text-[var(--color-muted)]">
-            Built for large enterprises where every message has to be safe,
-            on-brand, and auditable.
-          </p>
-        </Reveal>
+      <div className="mx-auto max-w-[1240px] px-5 sm:px-8">
+        <SectionHead
+          index="04"
+          kicker="Enterprise-grade"
+          title="The part that makes it safe to automate"
+        >
+          Large teams can&apos;t ship AI that hallucinates. Verve treats every
+          message as something that has to be on-brand, auditable and legal.
+        </SectionHead>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-12 grid gap-3 lg:grid-cols-3">
           {features.map((f, i) => (
-            <Reveal key={f.title} delay={i * 100}>
-              <article className="card h-full p-6">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[rgba(79,139,255,0.14)]">
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#4f8bff"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z" />
-                    <path d="M9 12l2 2 4-4" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold">{f.title}</h3>
+            <Reveal key={f.title} delay={i * 90}>
+              <article className="panel flex h-full flex-col rounded-2xl p-7">
+                <span className="w-fit rounded-full border border-[var(--color-line)] px-2.5 py-1 text-[11px] text-[var(--color-faint)]">
+                  {f.tag}
+                </span>
+                <h3 className="mt-5 font-display text-xl font-semibold">
+                  {f.title}
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--color-muted)]">
                   {f.desc}
                 </p>

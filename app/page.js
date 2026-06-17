@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import LogoCloud from "@/components/LogoCloud";
+import Ticker from "@/components/Ticker";
 import Channels from "@/components/Channels";
 import Differentiator from "@/components/Differentiator";
 import HowItWorks from "@/components/HowItWorks";
@@ -15,7 +15,7 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <Hero />
-      <LogoCloud />
+      <Ticker />
       <Channels />
       <Differentiator />
       <HowItWorks />

@@ -51,7 +51,7 @@ export default function Counter({
       : Math.round(value).toLocaleString();
 
   return (
-    <span ref={ref} className="counter-glow">
+    <span ref={ref}>
       {prefix}
       {display}
       {suffix}

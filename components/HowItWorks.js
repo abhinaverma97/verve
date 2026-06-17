@@ -1,69 +1,55 @@
 import Reveal from "./Reveal";
+import SectionHead from "./SectionHead";
 
-const capabilities = [
+const steps = [
   {
-    title: "Dynamic timing",
-    desc: "Learns from response patterns to nudge or follow up at the exact moment a reply is most likely.",
-    icon: "M12 6v6l4 2M12 22a10 10 0 110-20 10 10 0 010 20z",
+    n: "01",
+    title: "Reads the timing",
+    desc: "Learns from response patterns to nudge exactly when a reply is most likely, not on a fixed schedule.",
   },
   {
-    title: "Local presence dialing",
-    desc: "Automatically matches the outbound number to the lead’s local area code to lift answer rates.",
-    icon: "M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11zm0-8a3 3 0 100-6 3 3 0 000 6z",
+    n: "02",
+    title: "Dials local",
+    desc: "Matches the outbound number to the lead's area code so calls actually get answered.",
   },
   {
-    title: "Action-taking",
-    desc: "Calls external APIs to schedule appointments, generate quotes, and process payments in-chat or on the call.",
-    icon: "M13 2L3 14h7l-1 8 10-12h-7l1-8z",
+    n: "03",
+    title: "Takes the action",
+    desc: "Hits your APIs to book appointments, generate quotes and take payment, mid-chat or on the call.",
   },
   {
-    title: "Smart handoffs",
-    desc: "Cold, warm, and scheduled transfers — briefing a human rep with full context before connecting.",
-    icon: "M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7",
+    n: "04",
+    title: "Hands off clean",
+    desc: "Cold, warm or scheduled transfers — briefing a human rep with the full context before connecting.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-      <Reveal>
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-brand)]">
-          How the AI works
-        </p>
-        <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-          Autonomous SDRs, not LLM wrappers
-        </h2>
-        <p className="mt-4 max-w-2xl text-[var(--color-muted)]">
-          Verve agents act like real sales development reps with concrete
-          functional capabilities — they don&apos;t just chat, they close the
-          loop.
-        </p>
-      </Reveal>
+    <section id="method" className="mx-auto max-w-[1240px] px-5 py-24 sm:px-8">
+      <SectionHead
+        index="03"
+        kicker="How it works"
+        title="Reps that act, not chatbots that reply"
+      >
+        Verve agents behave like real SDRs with concrete capabilities. They close
+        the loop instead of leaving you a transcript.
+      </SectionHead>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2">
-        {capabilities.map((c, i) => (
-          <Reveal key={c.title} delay={i * 90}>
-            <article className="card group flex h-full gap-5 p-6">
-              <div className="flex h-12 w-12 flex-none items-center justify-center rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-soft)] transition-colors group-hover:border-[rgba(124,92,255,0.5)]">
-                <svg
-                  className="h-6 w-6"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#c9b8ff"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d={c.icon} />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold">{c.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-[var(--color-muted)]">
-                  {c.desc}
-                </p>
-              </div>
-            </article>
+      <div className="mt-14 border-t border-[var(--color-line)]">
+        {steps.map((s, i) => (
+          <Reveal key={s.n} delay={i * 70}>
+            <div className="group grid grid-cols-[auto_1fr] items-baseline gap-6 border-b border-[var(--color-line)] py-7 transition-colors hover:bg-[var(--color-bg-soft)] sm:grid-cols-[80px_1fr_1.4fr] sm:gap-8">
+              <span className="index-num text-xl transition-colors group-hover:text-[var(--color-accent)]">
+                {s.n}
+              </span>
+              <h3 className="font-display text-xl font-semibold sm:text-2xl">
+                {s.title}
+              </h3>
+              <p className="col-span-2 text-[15px] text-[var(--color-muted)] sm:col-span-1">
+                {s.desc}
+              </p>
+            </div>
           </Reveal>
         ))}
       </div>
