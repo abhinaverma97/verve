@@ -3,7 +3,6 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   Float,
-  Environment,
   MeshDistortMaterial,
   Icosahedron,
   Html,
@@ -27,13 +26,13 @@ function Core() {
       {/* solid distorted core */}
       <Icosahedron args={[1.15, 6]}>
         <MeshDistortMaterial
-          color="#16161c"
-          roughness={0.35}
-          metalness={0.55}
+          color="#1c1c22"
+          roughness={0.45}
+          metalness={0.2}
           distort={0.32}
           speed={1.4}
           emissive={ACCENT}
-          emissiveIntensity={0.06}
+          emissiveIntensity={0.08}
         />
       </Icosahedron>
 
@@ -142,9 +141,10 @@ export default function MemoryCoreScene() {
       camera={{ position: [0, 0, 6.2], fov: 42 }}
       gl={{ antialias: true, alpha: true }}
     >
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[4, 5, 5]} intensity={1.1} />
-      <pointLight position={[-5, -3, -4]} intensity={30} color={ACCENT} />
+      <ambientLight intensity={0.9} />
+      <directionalLight position={[4, 5, 5]} intensity={2.2} />
+      <directionalLight position={[-6, 2, -3]} intensity={1.2} color="#ffffff" />
+      <pointLight position={[-5, -3, -4]} intensity={40} color={ACCENT} />
 
       <PointerRig>
         <Float speed={1.2} rotationIntensity={0.3} floatIntensity={0.6}>
@@ -155,8 +155,6 @@ export default function MemoryCoreScene() {
           <ChannelNode key={i} index={i} count={CHANNELS.length} />
         ))}
       </PointerRig>
-
-      <Environment preset="city" />
     </Canvas>
   );
 }
