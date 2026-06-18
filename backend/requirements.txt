@@ -6,3 +6,5 @@ groq
 elevenlabs
 python-dotenv
 pydub
+sqlalchemy
+psycopg2-binary

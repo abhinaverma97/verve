@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Logo from "./Logo";
 
 const links = [
-  { label: "Channels", href: "#channels" },
-  { label: "Method", href: "#method" },
-  { label: "Guardrails", href: "#guardrails" },
-  { label: "Industries", href: "#industries" },
+  { label: "Channels", href: "/#channels" },
+  { label: "Method", href: "/#method" },
+  { label: "Guardrails", href: "/#guardrails" },
+  { label: "Industries", href: "/#industries" },
 ];
 
 export default function Navbar() {
@@ -30,33 +31,33 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-[1240px] items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5">
           <Logo className="h-6 w-6" />
           <span className="font-display text-[17px] font-semibold tracking-tight">
             Verve
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-9 md:flex">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="link-wipe text-[13px] font-medium text-[var(--color-muted)] transition-colors hover:text-[var(--color-ink)]"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="hidden items-center gap-2 md:flex">
-          <a
-            href="#"
-            className="link-wipe px-3 text-[13px] font-medium text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+          <Link
+            href="/dashboard"
+            className="btn-accent rounded-full px-4 py-2 text-[13px]"
           >
-            Sign in
-          </a>
-          <a href="#cta" className="btn-accent rounded-full px-4 py-2 text-[13px]">
+            Intelligence Dashboard
+          </Link>
+          <a href="#cta" className="btn-line rounded-full px-4 py-2 text-[13px]">
             Get a walkthrough
           </a>
         </div>
@@ -90,19 +91,26 @@ export default function Navbar() {
         <div className="border-t border-[var(--color-line)] bg-[rgba(11,11,15,0.97)] px-5 py-5 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-4">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="text-sm text-[var(--color-muted)] hover:text-[var(--color-ink)]"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
+            <Link
+              href="/dashboard"
+              onClick={() => setOpen(false)}
+              className="btn-accent mt-1 rounded-full px-5 py-2.5 text-center text-sm"
+            >
+              Intelligence Dashboard
+            </Link>
             <a
               href="#cta"
               onClick={() => setOpen(false)}
-              className="btn-accent mt-1 rounded-full px-5 py-2.5 text-center text-sm"
+              className="btn-line rounded-full px-5 py-2.5 text-center text-sm"
             >
               Get a walkthrough
             </a>

@@ -28,6 +28,8 @@ def test_twilio():
         print(f"[FAILED] Twilio Error: {e}")
 
 if __name__ == "__main__":
+    from dotenv import load_dotenv
+    load_dotenv()
     print("--- Running Backend Tests ---")
     test_groq()
     print("-" * 20)
