@@ -89,6 +89,8 @@ Stores all interactions for future reference and analytics.
 
 ## System Architecture
 
+![Verve Architecture](Verve Architecture.png)
+
 ```text
 Customer Channels
 ─────────────────────────
